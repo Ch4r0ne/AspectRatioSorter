@@ -2,7 +2,7 @@
 This script sorts image and video files in the landscape and portrait subfolders in the original folder.
 
 ## How to use
-1. Download the script and save it in the folder.
+1. Download the script and save it.
 2. Run the script by double-clicking on it or running it through the command line (e.g. ```python AspectRatioSorter.py```)
 3. Follow the prompts to enter the path of the folder containing the files. (e.g. ```C:\Users\Username\Documents\MediaFolder```)
 4. Wait for the script to run and the files to be sorted into the appropriate subfolders.
