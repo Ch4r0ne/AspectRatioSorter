@@ -27,7 +27,6 @@ with tqdm(total=len(files)) as pbar:
         if filename.endswith(".mp4") or filename.endswith(".mov"):
             # open the video file
             cap = cv2.VideoCapture(filepath)
-            # get the frames per second (fps) of the video
             fps = cap.get(cv2.CAP_PROP_FPS)
             # get the frame dimensions
             width = int(cap.get(3))
