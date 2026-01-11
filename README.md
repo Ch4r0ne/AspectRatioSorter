@@ -22,5 +22,8 @@ Business-style **PyQt6** app that sorts media by aspect ratio into **portrait** 
 ## Package (single EXE)
 ```powershell
 pyinstaller -y --clean --onefile --noconsole --name "AspectRatioSorter" `
+  --icon "assets\AspectRatioSorter.ico" `
+  --add-data "assets\AspectRatioSorter.ico;assets" `
   --collect-all "cv2" `
   "AspectRatioSorter.py"
+```
