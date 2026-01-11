@@ -1,29 +1,26 @@
 # AspectRatioSorter
 
-This script sorts image and video files in the landscape and portrait subfolders in the original folder.
+![Last Commit](https://img.shields.io/github/last-commit/Ch4r0ne/AspectRatioSorter?style=flat-square)
+![Release](https://img.shields.io/github/v/release/Ch4r0ne/AspectRatioSorter?style=flat-square)
+![License](https://img.shields.io/github/license/Ch4r0ne/AspectRatioSorter?style=flat-square)
+![Python](https://img.shields.io/badge/Python-3.10%2B-2b2b2b?style=flat-square)
+![PyQt6](https://img.shields.io/badge/PyQt6-GUI-2b2b2b?style=flat-square)
+![OpenCV](https://img.shields.io/badge/OpenCV-cv2-2b2b2b?style=flat-square)
 
-### How to use
-1. Download the script (AspectRatioSorter.py)
-2. Run the script
-3. Enter the folder path where the files to be sorted are located
-4. The program will go through all the files in the folder and move them to the "landscape" or "portrait" subfolder
+Business-style **PyQt6** app that sorts media by aspect ratio into **portrait** / **landscape** folders.
 
-### Requirements
-- Python 3.x
-- opencv-python
-- tqdm (optional, but recommended for a better user experience)
+![Preview](./Preview/AspectRatioSorter.png)
 
-You can install these libraries by running the following command in your command prompt:
+## What it does
+- Supported: **.jpg .jpeg .png .mp4 .mov**
+- Rule: `width / height < 1` → `portrait`, else → `landscape`
+- Workflow: **Analyze → Sort (MOVE)**
+- Output behavior:
+  - Output empty → creates `portrait/` + `landscape/` directly in **Source**
+  - Output set → creates `Source/<Output>/portrait|landscape`
 
-    pip install opencv-python tqdm
-
-### Supported file types
- JPEG, JPG, PNG, MOV, MP4
-
-### Note
-- The script will not sort files in subfolders within the target folder.
-- The script will not overwrite files in the subfolders.
-- You can use the command `pyinstaller AspectRatioSorter.py --hidden-import tqdm --hidden-import opencv-python` to repack the script AspectRatioSorter.py into a standalone executable using the PyInstaller library
-
-### How the script works
-The script starts by creating the subfolders where the files will be sorted. Then it lists all the files in the directory and exclude directories. Then it creates a progress bar using tqdm and iterates through all the files in the directory. Then it reads the image file or open the video file and gets the width and height of the image or video. Then it calculates the aspect ratio of the image or video and determine if the image/video is portrait or landscape. Then it creates the subfolder if it doesn't exist and move the file to the appropriate subfolder. Finally, it updates the progress bar
+## Package (single EXE)
+```powershell
+pyinstaller -y --clean --onefile --noconsole --name "AspectRatioSorter" `
+  --collect-all "cv2" `
+  "AspectRatioSorter.py"
